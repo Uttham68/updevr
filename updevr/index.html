@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uttham Porandla | Developer</title>
+  <meta name="description" content="Uttham Porandla - Professional Frontend Developer specializing in responsive, high-performance web experiences using modern technologies."/>
+  
+  <!-- Favicon / Tab Logo -->
+  <link rel="icon" href="up.dev.png" type="image/png"/>
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Uttham Porandla — Frontend Developer"/>
+  <meta property="og:description" content="Building pixel-perfect, responsive and performant web experiences."/>
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg"/>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts: Unbounded (display) + Manrope (body) + JetBrains Mono (code) -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-text">UP.dev</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-container"><div id="progress-bar"></div></div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" title="Go to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobile-nav">
+    <ul>
+      <li><a href="#about" onclick="closeMobileNav()">About</a></li>
+      <li><a href="#skills" onclick="closeMobileNav()">Skills</a></li>
+      <li><a href="#projects" onclick="closeMobileNav()">Projects</a></li>
+      <li><a href="#experience" onclick="closeMobileNav()">Experience</a></li>
+      <li><a href="#contact" onclick="closeMobileNav()">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="nav-logo">Uttham<span class="dot">.dev</span></a>
+        <ul class="nav-links mb-0">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a href="#contact" class="nav-cta d-none d-md-inline-flex">Hire Me</a>
+          <div class="hamburger d-flex d-md-none" id="hamburger" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-blob blob3"></div>
+
+    <div class="container" style="position:relative; z-index:2;">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-7">
+          <div class="hero-eyebrow">
+            <span class="ping"></span>
+            Available for freelance work
+          </div>
+          <h1 class="hero-title">
+            <span class="line"><span class="inner">Uttham</span></span>
+            <span class="line"><span class="inner hollow">Porandla</span></span>
+          </h1>
+          <p class="hero-sub">
+            I am a <span id="typewriter" style="color: var(--text); font-weight: 600;"></span> building <strong>pixel-perfect</strong>, responsive and performant web experiences.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-fill">See My Work <i class="bi bi-arrow-right"></i></a>
+            <a href="#contact" class="btn-ghost">Contact Me <i class="bi bi-send"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+          <div class="hero-graphic">
+            <div class="hero-card-stack">
+              <div class="hc-behind2"></div>
+              <div class="hc-behind1"></div>
+              <div class="hc hc-main">
+                <div class="hc-dot-row">
+                  <div class="hc-dot" style="background:#ff5f57;"></div>
+                  <div class="hc-dot" style="background:#febc2e;"></div>
+                  <div class="hc-dot" style="background:#28c840;"></div>
+                </div>
+                <div class="code-line"><span class="code-key">const</span> <span class="code-val">developer</span> <span class="code-bracket">= {</span></div>
+                <div class="code-line" style="padding-left:1rem;"><span class="code-key">name</span>: <span class="code-str">"Uttham Porandla"</span>,</div>
+                <div class="code-line" style="padding-left:1rem;"><span class="code-key">role</span>: <span class="code-str">"Frontend Dev"</span>,</div>
+                <div class="code-line" style="padding-left:1rem;"><span class="code-key">stack</span>: <span class="code-bracket">[</span></div>
+                <div class="code-line" style="padding-left:2rem;"><span class="code-arr">"HTML"</span>, <span class="code-arr">"CSS"</span>,</div>
+                <div class="code-line" style="padding-left:2rem;"><span class="code-arr">"JavaScript"</span>,</div>
+                <div class="code-line" style="padding-left:2rem;"><span class="code-arr">"Bootstrap"</span>,</div>
+                <div class="code-line" style="padding-left:2rem;"><span class="code-arr">"TailwindCSS"</span></div>
+                <div class="code-line" style="padding-left:1rem;"><span class="code-bracket">],</span></div>
+                <div class="code-line" style="padding-left:1rem;"><span class="code-key">available</span>: <span style="color:#98e06e;">true</span></div>
+                <div class="code-line"><span class="code-bracket">};</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-cue-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ==================== STATS ==================== -->
+  <div class="stats-strip">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center">
+        <div class="stat-item">
+          <div class="stat-num" data-count="3">0</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="10">0</div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-label">Core Technologies</div>
+        </div>
+        <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
+        <div class="stat-item">
+          <div class="stat-num" data-count="100">0</div>
+          <div class="stat-label">% Committed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-5 sr sr-left">
+          <div class="about-avatar">
+            <div class="avatar-box">
+              <div class="avatar-initial">U</div>
+              <div class="avatar-glow"></div>
+              <div class="avatar-code-tag">&lt;uttham.dev /&gt;</div>
+            </div>
+            <div class="avatar-frame1"></div>
+            <div class="avatar-frame2"></div>
+            <div class="avatar-chip chip-tl">
+              <span class="big">3+</span>
+              Years Coding
+            </div>
+            <div class="avatar-chip chip-br">
+              <span class="big">10+</span>
+              Projects Done
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 offset-lg-1 sr sr-right" style="transition-delay:.2s;">
+          <div class="eyebrow">About Me</div>
+          <h2 class="section-h">Frontend craftsman<br/>who loves clean code</h2>
+          <div class="rule"></div>
+          <p class="about-desc">
+            Hey! I'm <strong>Uttham Porandla</strong>, a passionate frontend developer with hands-on experience building and deploying modern, responsive websites from the ground up.
+          </p>
+          <p class="about-desc">
+            I specialise in turning designs into <strong>clean, efficient, and accessible</strong> code. Whether it's a landing page, dashboard, or complex web app, I bring the same care and precision to every project.
+          </p>
+          <p class="about-desc">
+            When I'm not coding, I'm exploring new design trends, tinkering with animations, or learning the next tool in the frontend ecosystem.
+          </p>
+          <div class="tech-grid">
+            <div class="tech-item"><span class="tech-dot" style="background:#e34c26;"></span>HTML5</div>
+            <div class="tech-item"><span class="tech-dot" style="background:#264de4;"></span>CSS3</div>
+            <div class="tech-item"><span class="tech-dot" style="background:#f0db4f;"></span>JavaScript</div>
+            <div class="tech-item"><span class="tech-dot" style="background:#7952b3;"></span>Bootstrap 5</div>
+            <div class="tech-item"><span class="tech-dot" style="background:#38bdf8;"></span>Tailwind CSS</div>
+            <div class="tech-item"><span class="tech-dot" style="background:#f97316;"></span>Responsive Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills" style="background:var(--surface);">
+    <div class="container">
+      <div class="text-center sr" style="max-width:580px; margin:0 auto 3.5rem;">
+        <div class="eyebrow">What I Do</div>
+        <h2 class="section-h">Skills & Expertise</h2>
+        <div class="rule center"></div>
+        <p style="color:var(--muted); font-size:0.9rem; line-height:1.8;">
+          A focused, modern frontend toolkit — everything I need to build beautiful, fast, and accessible web experiences.
+        </p>
+      </div>
+      <div class="skill-grid">
+        <div class="sr sr-delay-1">
+          <div class="skill-card">
+            <div class="skill-icon-wrap"><i class="bi bi-code-slash"></i></div>
+            <div class="skill-title">HTML5</div>
+            <p class="skill-desc">Semantic, accessible markup built for structure, SEO, and screen readers. Clean HTML is the foundation of every great site.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="92"></div></div>
+          </div>
+        </div>
+        <div class="sr sr-delay-2">
+          <div class="skill-card">
+            <div class="skill-icon-wrap" style="background:rgba(38,77,228,0.1); color:#6e8cf5;"><i class="bi bi-palette2"></i></div>
+            <div class="skill-title">CSS3 & Animations</div>
+            <p class="skill-desc">Fluid layouts, custom animations, transitions and responsive design systems that look stunning on every device.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="90"></div></div>
+          </div>
+        </div>
+        <div class="sr sr-delay-3">
+          <div class="skill-card">
+            <div class="skill-icon-wrap" style="background:rgba(240,219,79,0.08); color:#f0db4f;"><i class="bi bi-braces"></i></div>
+            <div class="skill-title">JavaScript ES6+</div>
+            <p class="skill-desc">DOM manipulation, async/await, event handling, and interactive UI components built with modern vanilla JS.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="85"></div></div>
+          </div>
+        </div>
+        <div class="sr sr-delay-1">
+          <div class="skill-card">
+            <div class="skill-icon-wrap" style="background:rgba(121,82,179,0.1); color:#a37fe0;"><i class="bi bi-bootstrap"></i></div>
+            <div class="skill-title">Bootstrap 5</div>
+            <p class="skill-desc">Rapid UI development using Bootstrap's comprehensive component library, grid, and utility system.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="95"></div></div>
+          </div>
+        </div>
+        <div class="sr sr-delay-2">
+          <div class="skill-card">
+            <div class="skill-icon-wrap" style="background:rgba(56,189,248,0.08); color:#38bdf8;"><i class="bi bi-wind"></i></div>
+            <div class="skill-title">Tailwind CSS</div>
+            <p class="skill-desc">Utility-first styling for highly maintainable, expressive and custom design systems at any scale.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="88"></div></div>
+          </div>
+        </div>
+        <div class="sr sr-delay-3">
+          <div class="skill-card">
+            <div class="skill-icon-wrap" style="background:rgba(76,201,240,0.08); color:var(--blue);"><i class="bi bi-rocket-takeoff"></i></div>
+            <div class="skill-title">Deploy & Ship</div>
+            <p class="skill-desc">End-to-end ownership — from writing code to deploying production-ready websites with performance in mind.</p>
+            <div class="skill-level"><div class="skill-level-bar" data-width="82"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-5 sr">
+        <div>
+          <div class="eyebrow">My Work</div>
+          <h2 class="section-h">Featured Projects</h2>
+          <div class="rule" style="margin-bottom:0;"></div>
+        </div>
+        <a href="#contact" class="btn-ghost" style="white-space:nowrap;">All Projects <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <div class="filter-wrap sr">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="bootstrap"></button>
+        <button class="filter-btn" data-filter="tailwind"></button>
+        <button class="filter-btn" data-filter="javascript"></button>
+      </div>
+
+      <div class="project-grid">
+        <!-- Featured -->
+        <div class="project-card featured sr sr-delay-1" data-tech="bootstrap javascript" data-project-id="saas">
+          <div class="proj-thumb">
+            <div class="proj-thumb-inner">
+              <svg width="100%" height="100%" viewBox="0 0 700 280" preserveAspectRatio="xMidYMid slice" role="img" aria-label="January Delight Food Truck Website Preview">
+                <defs>
+                  <linearGradient id="pg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.15"/>
+                    <stop offset="100%" style="stop-color:#ffd166;stop-opacity:0.05"/>
+                  </linearGradient>
+                </defs>
+                <rect width="700" height="280" fill="url(#pg1)"/>
+                <circle cx="500" cy="60" r="100" fill="none" stroke="rgba(255,107,53,0.12)" stroke-width="1"/>
+                <circle cx="500" cy="60" r="160" fill="none" stroke="rgba(255,107,53,0.06)" stroke-width="1"/>
+                <line x1="0" y1="140" x2="700" y2="140" stroke="rgba(255,107,53,0.06)" stroke-width="1"/>
+                <line x1="350" y1="0" x2="350" y2="280" stroke="rgba(255,107,53,0.06)" stroke-width="1"/>
+              </svg>
+            </div>
+            <span class="proj-num">01</span>
+            <i class="bi bi-layout-text-window proj-icon"></i>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">HTML5</span>
+              <span class="proj-tag">CSS3</span>
+              <span class="proj-tag">Bootstrap 5</span>
+              <span class="proj-tag">JavaScript</span>
+            </div>
+            <div class="proj-title">January Delight | FoodTruck Website</div>
+            <p class="proj-desc">January Delight is a gourmet food truck serving delicious comfort food and fusion cuisine in Beavercreek, Ohio. Order online or visit us for lunch, dinner, and snacks.</p>
+            <div class="proj-footer">
+              <a href="#" class="proj-link">View Project <i class="bi bi-arrow-right"></i></a>
+              <div class="proj-links-right">
+                <a href="https://www.januarydelight.com/" target="_blank" class="proj-icon-btn"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side card -->
+        <div class="project-card side sr sr-delay-2" data-tech="tailwind javascript" data-project-id="ecommerce">
+          <div class="proj-thumb">
+            <div class="proj-thumb-inner">
+              <svg width="100%" height="100%" viewBox="0 0 500 220" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Kinnera Images Business Website Preview">
+                <defs><linearGradient id="pg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4cc9f0;stop-opacity:0.15"/><stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.06"/></linearGradient></defs>
+                <rect width="500" height="220" fill="url(#pg2)"/>
+                <rect x="60" y="40" width="100" height="100" fill="none" stroke="rgba(76,201,240,0.15)" stroke-width="1" transform="rotate(15 110 90)"/>
+                <rect x="300" y="20" width="150" height="150" fill="none" stroke="rgba(76,201,240,0.08)" stroke-width="1" transform="rotate(-10 375 95)"/>
+              </svg>
+            </div>
+            <span class="proj-num" style="color:rgba(76,201,240,0.05);">02</span>
+            <i class="bi bi-shop-window proj-icon" style="color:rgba(76,201,240,0.4);"></i>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags">
+              <span class="proj-tag">Tailwind CSS</span>
+              <span class="proj-tag">JS</span>
+            </div>
+            <div class="proj-title">Kinnera Images | Business Website</div>
+            <p class="proj-desc">Kinnera Images is Warangal's premier digital AI studio specializing in wedding photography, cinematic videography, and corporate portraits since 1991.</p>
+            <div class="proj-footer">
+              <a href="#" class="proj-link">View Project <i class="bi bi-arrow-right"></i></a>
+              <div class="proj-links-right">
+                <a href="https://kinneraimages.netlify.app/" target="_blank" class="proj-icon-btn"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Half cards -->
+        <div class="project-card half sr sr-delay-2" data-tech="javascript" data-project-id="analytics">
+          <div class="proj-thumb" style="height:160px;">
+            <div class="proj-thumb-inner">
+              <svg width="100%" height="100%" viewBox="0 0 500 160" preserveAspectRatio="xMidYMid slice" role="img" aria-label="BingeHub Anime Tracker Preview">
+                <defs><linearGradient id="pg3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd166;stop-opacity:0.12"/><stop offset="100%" style="stop-color:#ff6b35;stop-opacity:0.06"/></linearGradient></defs>
+                <rect width="500" height="160" fill="url(#pg3)"/>
+                <polyline points="0,120 80,60 160,95 240,30 320,70 400,20 500,50" fill="none" stroke="rgba(255,209,102,0.2)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <span class="proj-num" style="color:rgba(255,209,102,0.05); font-size:5rem;">03</span>
+            <i class="bi bi-graph-up proj-icon" style="color:rgba(255,209,102,0.5);"></i>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JS</span></div>
+            <div class="proj-title">BingeHub | Your Ultimate Anime & TV Tracker</div>
+            <p class="proj-desc">Your Ultimate Anime & TV Tracker</p>
+            <div class="proj-footer">
+              <a href="#" class="proj-link">View <i class="bi bi-arrow-right"></i></a>
+              <div class="proj-links-right">
+                <a href="https://atvtracker.netlify.app/" target="_blank" class="proj-icon-btn"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card half sr sr-delay-3" data-tech="bootstrap" data-project-id="portfolio">
+          <div class="proj-thumb" style="height:160px;">
+            <div class="proj-thumb-inner">
+              <svg width="100%" height="100%" viewBox="0 0 500 160" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Portfolio Template Preview">
+                <defs><linearGradient id="pg4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#98e06e;stop-opacity:0.1"/><stop offset="100%" style="stop-color:#4cc9f0;stop-opacity:0.06"/></linearGradient></defs>
+                <rect width="500" height="160" fill="url(#pg4)"/>
+                <circle cx="250" cy="80" r="50" fill="none" stroke="rgba(152,224,110,0.15)" stroke-width="1"/>
+                <circle cx="250" cy="80" r="80" fill="none" stroke="rgba(152,224,110,0.08)" stroke-width="1"/>
+              </svg>
+            </div>
+            <span class="proj-num" style="color:rgba(152,224,110,0.05); font-size:5rem;">04</span>
+            <i class="bi bi-person-vcard proj-icon" style="color:rgba(152,224,110,0.4);"></i>
+          </div>
+          <div class="proj-body">
+            <div class="proj-tags"><span class="proj-tag">Bootstrap</span><span class="proj-tag">CSS</span></div>
+            <div class="proj-title">Portfolio Template</div>
+            <p class="proj-desc">Clean, minimal portfolio template for creatives and developers.</p>
+            <div class="proj-footer">
+              <a href="#" class="proj-link">View <i class="bi bi-arrow-right"></i></a>
+              <div class="proj-links-right">
+                <a href="#" class="proj-icon-btn"><i class="bi bi-box-arrow-up-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section id="experience" style="background:var(--surface);">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-4 sr sr-left">
+          <div class="eyebrow">Career Path</div>
+          <h2 class="section-h">Experience &<br/>Education</h2>
+          <div class="rule"></div>
+          <p style="color:var(--muted); font-size:0.88rem; line-height:1.8; margin-bottom:2rem;">
+            A journey driven by curiosity, real projects, and an obsession with building things that actually work beautifully.
+          </p>
+          <!-- Skills summary -->
+          <div style="background:var(--surface2); border:1px solid var(--border); border-radius:12px; padding:1.4rem;">
+            <div class="eyebrow" style="margin-bottom:1rem;">Quick Stats</div>
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+              <div>
+                <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); margin-bottom:5px;">
+                  <span>Frontend Dev</span><span style="color:var(--accent);">92%</span>
+                </div>
+                <div style="height:3px; background:var(--surface); border-radius:2px; overflow:hidden;">
+                  <div style="height:100%; width:92%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:2px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); margin-bottom:5px;">
+                  <span>Responsive Design</span><span style="color:var(--blue);">95%</span>
+                </div>
+                <div style="height:3px; background:var(--surface); border-radius:2px; overflow:hidden;">
+                  <div style="height:100%; width:95%; background:linear-gradient(90deg,var(--blue),#a37fe0); border-radius:2px;"></div>
+                </div>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); margin-bottom:5px;">
+                  <span>UI/UX Sensibility</span><span style="color:var(--accent2);">88%</span>
+                </div>
+                <div style="height:3px; background:var(--surface); border-radius:2px; overflow:hidden;">
+                  <div style="height:100%; width:88%; background:linear-gradient(90deg,var(--accent2),#ff9f43); border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 offset-lg-1 sr sr-right" style="transition-delay:.2s;">
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-period">Present</div>
+              <div class="tl-role">Frontend Developer</div>
+              <div class="tl-company"><i class="bi bi-briefcase" style="font-size:0.8rem; margin-right:6px;"></i>Freelance / Self-Employed</div>
+              <ul class="tl-points">
+                <li>Designed and developed responsive websites for diverse clients using HTML, CSS, JS & Bootstrap.</li>
+                <li>Built and deployed production-ready websites with focus on performance, SEO, and accessibility.</li>
+                <li>Implemented utility-first UIs and custom component systems with Tailwind CSS.</li>
+                <li>Maintained and iterated on live projects based on client feedback and analytics.</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot alt"></div>
+              <div class="tl-period" style="color:var(--blue);">2025 - 2026</div>
+              <div class="tl-role">Junior Web Developer</div>
+              <div class="tl-company"><i class="bi bi-laptop" style="font-size:0.8rem; margin-right:6px;"></i>Personal Projects & Open Source</div>
+              <ul class="tl-points">
+                <li>Built 5+ personal projects to deepen understanding of HTML, CSS and JavaScript.</li>
+                <li>Contributed to open source UI component repositories and starter templates.</li>
+                <li>Learned responsive design patterns, cross-browser compatibility, and performance best practices.</li>
+              </ul>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot dim"></div>
+              <div class="tl-period" style="color:var(--muted);">2023 — 2027</div>
+              <div class="tl-role">B.Tech — Computer Science & Engineering.</div>
+              <div class="tl-company"><i class="bi bi-mortarboard" style="font-size:0.8rem; margin-right:6px;"></i>University</div>
+              <ul class="tl-points">
+                <li>Studied CS fundamentals, data structures, algorithms, and web technologies.</li>
+                <li>Final year project: a full-stack web app deployed to cloud with responsive frontend.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="text-center sr" style="max-width:560px; margin:0 auto 4rem;">
+        <div class="eyebrow">Let's Talk</div>
+        <h2 class="section-h">Get In Touch</h2>
+        <div class="rule center"></div>
+        <p style="color:var(--muted); font-size:0.92rem; line-height:1.8;">
+          Whether it's a project, a collaboration, or just a hello — my inbox is always open. I'll get back to you within 24 hours.
+        </p>
+      </div>
+
+      <div class="contact-wrap sr">
+        <!-- Info column -->
+        <div>
+          <div class="eyebrow">Contact Info</div>
+          <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; margin-bottom:0.5rem; letter-spacing:-0.02em;">
+            Let's build something great together
+          </h3>
+          <p style="color:var(--muted); font-size:0.88rem; line-height:1.8; margin-bottom:0;">
+            I'm currently available for freelance projects and open to full-time opportunities.
+          </p>
+
+          <div class="contact-info-items">
+            <a href="mailto:uttham.p04@gmail.com" class="contact-info-item">
+              <div class="ci-icon"><i class="bi bi-envelope"></i></div>
+              <div>
+                <div class="ci-label">Email</div>
+                <div class="ci-value">uttham.p04@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/utthamporandla" target="_blank" class="contact-info-item">
+              <div class="ci-icon" style="background:rgba(76,201,240,0.1); color:var(--blue);"><i class="bi bi-linkedin"></i></div>
+              <div>
+                <div class="ci-label">LinkedIn</div>
+                <div class="ci-value">Uttham Porandla</div>
+              </div>
+            </a>
+            <a href="https://github.com/Uttham68" target="_blank" class="contact-info-item">
+              <div class="ci-icon" style="background:rgba(255,255,255,0.04); color:#ccc;"><i class="bi bi-github"></i></div>
+              <div>
+                <div class="ci-label">GitHub</div>
+                <div class="ci-value">@utthamporandla</div>
+              </div>
+            </a>
+            <a href="tel:+91XXXXXXXXXX" class="contact-info-item">
+              <div class="ci-icon" style="background:rgba(255,209,102,0.08); color:var(--accent2);"><i class="bi bi-telephone"></i></div>
+              <div>
+                <div class="ci-label">Phone</div>
+                <div class="ci-value">+91 9390014522</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form column -->
+        <div>
+          <div class="contact-form" id="contactFormWrap">
+            <!-- Form -->
+            <div id="formContent">
+              <div style="margin-bottom:1.8rem;">
+                <div class="eyebrow">Send a Message</div>
+                <h3 style="font-family:var(--font-display); font-size:1.2rem; font-weight:700; letter-spacing:-0.02em;">
+                  Say Hello 👋
+                </h3>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">First Name *</label>
+                  <input type="text" id="fname" class="form-control-custom" placeholder="John" autocomplete="given-name"/>
+                  <div class="form-error" id="fname-error">Please enter your first name.</div>
+                </div>
+                <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control-custom" placeholder="Doe" autocomplete="family-name"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" class="form-control-custom" placeholder="john@example.com" autocomplete="email"/>
+                <div class="form-error" id="email-error">Please enter a valid email address.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" class="form-control-custom" style="appearance:none; cursor:pointer;">
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="freelance">Freelance Project</option>
+                  <option value="fulltime">Full-time Opportunity</option>
+                  <option value="collab">Collaboration</option>
+                  <option value="other">Just Saying Hi</option>
+                </select>
+                <div class="form-error" id="subject-error">Please select a subject.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" class="form-control-custom" rows="5" placeholder="Tell me about your project, timeline, and budget…" maxlength="1000"></textarea>
+                <div class="char-count" id="charCount">0 / 1000</div>
+                <div class="form-error" id="message-error">Please write a message (at least 20 characters).</div>
+              </div>
+
+              <button type="button" class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+                <span class="btn-text">Send Message <i class="bi bi-send"></i></span>
+                <div class="btn-loader"></div>
+              </button>
+            </div>
+
+            <!-- Success State -->
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+              <div class="success-title">Message Sent! 🎉</div>
+              <p class="success-sub">Thanks for reaching out! I'll get back to you within 24 hours.</p>
+              <button onclick="resetForm()" class="btn-ghost" style="font-size:0.75rem; padding:10px 20px;">Send Another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2025 Uttham Porandla. All rights reserved.</div>
+        <div class="footer-social">
+          <a href="https://github.com/Uttham68" target="_blank" class="social-btn"><i class="bi bi-github"></i></a>
+          <a href="https://linkedin.com/in/utthamporandla" target="_blank" class="social-btn"><i class="bi bi-linkedin"></i></a>
+          <a href="mailto:uttham.p04@gmail.com" target="_blank" class="social-btn"><i class="bi bi-envelope"></i></a>
+          <a href="tel:+919390014522" target="_blank" class="social-btn"><i class="bi bi-telephone"></i></a>
+        </div>
+        <div class="footer-made">Designed & built by <span>Uttham</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Project Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalImage" class="modal-proj-img d-flex align-items-center justify-content-center" style="height: 300px;"></div>
+          <div class="proj-tags mb-3" id="modalTags"></div>
+          <p class="proj-desc mb-0" id="modalDesc" style="font-size: 1rem;"></p>
+        </div>
+        <div class="modal-footer justify-content-start">
+          <a href="#" id="modalLiveLink" target="_blank" class="btn-fill" style="padding: 10px 20px; font-size: 0.7rem;">Live Demo <i class="bi bi-box-arrow-up-right"></i></a>
+          <a href="#" id="modalRepoLink" target="_blank" class="btn-ghost" style="padding: 10px 20px; font-size: 0.7rem;">View Code <i class="bi bi-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
