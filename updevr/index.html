@@ -100,7 +100,9 @@
     <div class="hero-blob blob3"></div>
 
     <div class="container" style="position:relative; z-index:2;">
-      <div class="row align-items-center gy-5">
+
+      <!-- DESKTOP HERO VIEW (>= 992px) -->
+      <div class="hero-desktop-wrap d-none d-lg-flex row align-items-center gy-5">
         <div class="col-lg-7">
           <div class="hero-eyebrow">
             <span class="ping"></span>
@@ -121,12 +123,13 @@
           </div>
         </div>
 
-        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+        <div class="col-lg-5 d-flex justify-content-end">
           <div class="hero-graphic">
             <div class="hero-card-stack">
               <div class="hc-behind2"></div>
               <div class="hc-behind1"></div>
-              <div class="hc hc-main spotlight-card border-beam-card" data-tilt data-tilt-max="7" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+              <div class="hc hc-main spotlight-card border-beam-card" data-tilt data-tilt-max="7" data-tilt-speed="400"
+                data-tilt-glare data-tilt-max-glare="0.15">
                 <div class="hc-dot-row">
                   <div class="hc-dot" style="background:#ff5f57;"></div>
                   <div class="hc-dot" style="background:#febc2e;"></div>
@@ -137,7 +140,7 @@
                 <div class="code-line" style="padding-left:1rem;"><span class="code-key">name</span>: <span
                     class="code-str">"Uttham Porandla"</span>,</div>
                 <div class="code-line" style="padding-left:1rem;"><span class="code-key">role</span>: <span
-                    class="code-str">"Full-Stack & AI/DS Engineer"</span>,</div>
+                    class="code-str">"Full-Stack &amp; AI/DS Engineer"</span>,</div>
                 <div class="code-line" style="padding-left:1rem;"><span class="code-key">stack</span>: <span
                     class="code-bracket">[</span></div>
                 <div class="code-line" style="padding-left:2rem;"><span class="code-arr">"Python"</span>, <span
@@ -149,7 +152,7 @@
                 </div>
                 <div class="code-line" style="padding-left:1rem;"><span class="code-bracket">],</span></div>
                 <div class="code-line" style="padding-left:1rem;"><span class="code-key">focus</span>: <span
-                    class="code-str">"Serverless & On-Device AI"</span>,</div>
+                    class="code-str">"Serverless &amp; On-Device AI"</span>,</div>
                 <div class="code-line" style="padding-left:1rem;"><span class="code-key">available</span>: <span
                     style="color:#98e06e;">true</span></div>
                 <div class="code-line"><span class="code-bracket">};</span></div>
@@ -158,6 +161,61 @@
           </div>
         </div>
       </div>
+
+      <!-- DEDICATED MOBILE HERO VIEW (< 992px) -->
+      <div class="hero-mobile-wrap d-block d-lg-none">
+
+        <!-- Mobile Main Title -->
+        <div class="mobile-title-wrap">
+          <h1 class="mobile-hero-title">
+            Architecting <span class="text-gradient">AI Platforms</span> &amp; Modern Web Apps
+          </h1>
+          <p class="mobile-hero-desc">
+            Full-Stack Software Engineer specializing in intelligent on-device AI engines, serverless cloud
+            architectures, and production-grade applications.
+          </p>
+        </div>
+
+        <!-- Mobile Bento Quick Stats Grid (2x2) -->
+        <div class="mobile-bento-grid">
+          <div class="mobile-bento-card">
+            <div class="bento-val text-gradient">8.45</div>
+            <div class="bento-label">B.Tech CGPA (AI/DS)</div>
+          </div>
+          <div class="mobile-bento-card">
+            <div class="bento-val text-blue">5+</div>
+            <div class="bento-label">Production Apps</div>
+          </div>
+          <div class="mobile-bento-card">
+            <div class="bento-val text-yellow">India AI</div>
+            <div class="bento-label">National Challenge '26</div>
+          </div>
+          <div class="mobile-bento-card">
+            <div class="bento-val text-green">100%</div>
+            <div class="bento-label">Shipped on Time</div>
+          </div>
+        </div>
+
+        <!-- Mobile Action Buttons -->
+        <div class="mobile-hero-actions">
+          <a href="#projects" class="mobile-btn-primary">Explore Featured Projects <i class="bi bi-arrow-right"></i></a>
+          <div class="mobile-hero-sub-actions">
+            <a href="#contact" class="mobile-btn-ghost"><i class="bi bi-send-fill"></i> Get in Touch</a>
+            <a href="https://github.com/Uttham68" target="_blank" class="mobile-icon-btn" title="GitHub"><i
+                class="bi bi-github"></i></a>
+            <a href="https://linkedin.com/in/uttham-porandla" target="_blank" class="mobile-icon-btn"
+              title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Mobile Scroll For More Indicator -->
+        <div class="mobile-scroll-cue">
+          <span class="mobile-scroll-text">Scroll for more</span>
+          <div class="mobile-scroll-chevron"><i class="bi bi-chevron-double-down"></i></div>
+        </div>
+
+      </div>
+
     </div>
 
     <div class="scroll-cue">
@@ -170,24 +228,28 @@
   <div class="stats-strip">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center">
-        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-          <div class="stat-num" data-target="99.9" data-suffix="%" data-decimals="1">0%</div>
-          <div class="stat-label">Uptime in Production</div>
+        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare
+          data-tilt-max-glare="0.2">
+          <div class="stat-num" data-target="8.45" data-suffix="/10" data-decimals="2">0</div>
+          <div class="stat-label">B.Tech CSE (AI/DS) CGPA</div>
         </div>
         <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
-        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-          <div class="stat-num" data-target="10" data-suffix="+">0+</div>
-          <div class="stat-label">Web Projects & Pages Shipped</div>
+        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare
+          data-tilt-max-glare="0.2">
+          <div class="stat-num" data-target="5" data-suffix="+">0+</div>
+          <div class="stat-label">Live Production Systems</div>
         </div>
         <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
-        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-          <div class="stat-num" data-target="500" data-prefix="<" data-suffix="ms">0ms</div>
-          <div class="stat-label">Real-Time Sync Latency</div>
+        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare
+          data-tilt-max-glare="0.2">
+          <div class="stat-num" data-target="15" data-suffix="+">0+</div>
+          <div class="stat-label">Core Tech & AI Frameworks</div>
         </div>
         <div class="stat-divider d-none d-sm-block" style="height:50px;"></div>
-        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-          <div class="stat-num" data-target="8.45" data-suffix=" CGPA" data-decimals="2">0</div>
-          <div class="stat-label">B.Tech CSE (AI/DS) Score</div>
+        <div class="stat-item spotlight-card" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare
+          data-tilt-max-glare="0.2">
+          <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">Client & Project Delivery</div>
         </div>
       </div>
     </div>
@@ -196,7 +258,8 @@
   <!-- Morph Wave Transition: Stats to About -->
   <div class="morph-divider-wrap">
     <svg viewBox="0 0 1440 50" preserveAspectRatio="none">
-      <path class="morph-wave-path" d="M0,25 C360,50 720,0 1080,40 C1260,60 1380,10 1440,25 L1440,50 L0,50 Z" fill="var(--bg2)"></path>
+      <path class="morph-wave-path" d="M0,25 C360,50 720,0 1080,40 C1260,60 1380,10 1440,25 L1440,50 L0,50 Z"
+        fill="var(--bg2)"></path>
     </svg>
   </div>
 
@@ -206,7 +269,8 @@
       <div class="row align-items-center gy-5">
         <div class="col-lg-5 sr sr-left">
           <div class="about-avatar">
-            <div class="avatar-box border-beam-card spotlight-card" data-tilt data-tilt-max="6" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.12">
+            <div class="avatar-box border-beam-card spotlight-card" data-tilt data-tilt-max="6" data-tilt-speed="400"
+              data-tilt-glare data-tilt-max-glare="0.12">
               <img src="profile.jpg" alt="Uttham Porandla - Software Engineer" class="avatar-img" />
               <div class="avatar-glow"></div>
               <div class="avatar-code-tag">&lt;uttham.dev /&gt;</div>
@@ -260,7 +324,8 @@
   <!-- Morph Wave Transition: About to Skills -->
   <div class="morph-divider-wrap">
     <svg viewBox="0 0 1440 50" preserveAspectRatio="none">
-      <path class="morph-wave-path" d="M0,20 C400,0 800,50 1200,15 C1320,5 1400,30 1440,20 L1440,50 L0,50 Z" fill="var(--surface)"></path>
+      <path class="morph-wave-path" d="M0,20 C400,0 800,50 1200,15 C1320,5 1400,30 1440,20 L1440,50 L0,50 Z"
+        fill="var(--surface)"></path>
     </svg>
   </div>
 
@@ -278,7 +343,8 @@
       </div>
       <div class="skill-grid">
         <div class="sr sr-delay-1">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(240,219,79,0.1); color:#f0db4f;"><i
                 class="bi bi-code-square"></i></div>
             <div class="skill-title">Languages</div>
@@ -289,7 +355,8 @@
           </div>
         </div>
         <div class="sr sr-delay-2">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(97,218,251,0.1); color:#61dafb;"><i
                 class="bi bi-layers-half"></i></div>
             <div class="skill-title">Frameworks & Libraries</div>
@@ -301,7 +368,8 @@
           </div>
         </div>
         <div class="sr sr-delay-3">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(243,128,32,0.1); color:#f38020;"><i
                 class="bi bi-cloud-check"></i></div>
             <div class="skill-title">Cloud & DevOps</div>
@@ -313,7 +381,8 @@
           </div>
         </div>
         <div class="sr sr-delay-1">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(76,201,240,0.1); color:var(--blue);"><i
                 class="bi bi-cpu"></i></div>
             <div class="skill-title">AI / ML & Data Science</div>
@@ -325,7 +394,8 @@
           </div>
         </div>
         <div class="sr sr-delay-2">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(121,82,179,0.1); color:#a37fe0;"><i
                 class="bi bi-diagram-3"></i></div>
             <div class="skill-title">CS Fundamentals</div>
@@ -336,7 +406,8 @@
           </div>
         </div>
         <div class="sr sr-delay-3">
-          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.15">
+          <div class="skill-card spotlight-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare
+            data-tilt-max-glare="0.15">
             <div class="skill-icon-wrap" style="background:rgba(152,224,110,0.1); color:#98e06e;"><i
                 class="bi bi-tools"></i></div>
             <div class="skill-title">Tools & Analytics</div>
@@ -353,7 +424,8 @@
   <!-- Morph Wave Transition: Skills to Projects -->
   <div class="morph-divider-wrap">
     <svg viewBox="0 0 1440 50" preserveAspectRatio="none">
-      <path class="morph-wave-path" d="M0,30 C300,50 600,10 900,40 C1200,60 1350,15 1440,30 L1440,50 L0,50 Z" fill="var(--bg)"></path>
+      <path class="morph-wave-path" d="M0,30 C300,50 600,10 900,40 C1200,60 1350,15 1440,30 L1440,50 L0,50 Z"
+        fill="var(--bg)"></path>
     </svg>
   </div>
 
@@ -379,19 +451,25 @@
 
       <div class="project-grid">
         <!-- Project 1: January Delight Food Truck (Featured Platform) -->
-        <div class="project-card featured sr sr-delay-1 spotlight-card border-beam-card" data-tech="fullstack" data-project-id="saas" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
+        <div class="project-card featured sr sr-delay-1 spotlight-card border-beam-card" data-tech="fullstack"
+          data-project-id="saas" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12"
+          data-tilt-speed="400">
           <div class="proj-thumb">
             <div class="proj-browser-bar">
               <div class="proj-browser-dots">
                 <span class="proj-browser-dot" style="background:#ff5f57;"></span>
                 <span class="proj-browser-dot" style="background:#febc2e;"></span>
                 <span class="proj-browser-dot" style="background:#28c840;"></span>
-                <span class="proj-browser-url"><i class="bi bi-lock-fill" style="font-size:0.55rem; margin-right:4px;"></i>januarydelight.com</span>
+                <span class="proj-browser-url"><i class="bi bi-lock-fill"
+                    style="font-size:0.55rem; margin-right:4px;"></i>januarydelight.com</span>
               </div>
-              <span class="badge" style="background:rgba(255,107,53,0.2); color:#ff6b35; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(255,107,53,0.3);">LIVE PRODUCTION</span>
+              <span class="badge"
+                style="background:rgba(255,107,53,0.2); color:#ff6b35; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(255,107,53,0.3);">LIVE
+                PRODUCTION</span>
             </div>
             <div class="proj-thumb-inner">
-              <img src="preview_januarydelight.jpg" alt="January Delight Live Ordering Platform" class="proj-preview-img" loading="lazy" />
+              <img src="preview_januarydelight.jpg" alt="January Delight Live Ordering Platform"
+                class="proj-preview-img" loading="lazy" />
               <div class="proj-overlay-glow"></div>
             </div>
             <div class="proj-chip">
@@ -409,32 +487,41 @@
               <span class="proj-tag">Vanilla JS</span>
             </div>
             <div class="proj-title">January Delight — Serverless Ordering & Real-Time Sync Platform</div>
-            <p class="proj-desc">Architected a serverless ordering platform using Node.js on Cloudflare Workers and RESTful APIs that maintained 99.9% uptime to process real-time customer orders with high availability. Constructed a real-time order pipeline with live admin panel synchronization (&lt;500ms latency) and full security layers.</p>
+            <p class="proj-desc">Architected a serverless ordering platform using Node.js on Cloudflare Workers and
+              RESTful APIs that maintained 99.9% uptime to process real-time customer orders with high availability.
+              Constructed a real-time order pipeline with live admin panel synchronization (&lt;500ms latency) and full
+              security layers.</p>
             <div class="proj-footer">
               <a href="https://www.januarydelight.com/" target="_blank" class="proj-link">Live Platform <i
                   class="bi bi-arrow-right"></i></a>
               <div class="proj-links-right">
-                <a href="https://www.januarydelight.com/" target="_blank" class="proj-icon-btn magnetic-btn" title="Live Site"><i
-                    class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://www.januarydelight.com/" target="_blank" class="proj-icon-btn magnetic-btn"
+                  title="Live Site"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Project 2: Shiksha Guard (Side card) -->
-        <div class="project-card side sr sr-delay-2 spotlight-card" data-tech="ai fullstack frontend" data-project-id="shiksha" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
+        <div class="project-card side sr sr-delay-2 spotlight-card" data-tech="ai fullstack frontend"
+          data-project-id="shiksha" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12"
+          data-tilt-speed="400">
           <div class="proj-thumb">
             <div class="proj-browser-bar">
               <div class="proj-browser-dots">
                 <span class="proj-browser-dot" style="background:#ff5f57;"></span>
                 <span class="proj-browser-dot" style="background:#febc2e;"></span>
                 <span class="proj-browser-dot" style="background:#28c840;"></span>
-                <span class="proj-browser-url"><i class="bi bi-lock-fill" style="font-size:0.55rem; margin-right:4px;"></i>shikshaguard.onrender.com</span>
+                <span class="proj-browser-url"><i class="bi bi-lock-fill"
+                    style="font-size:0.55rem; margin-right:4px;"></i>shikshaguard.onrender.com</span>
               </div>
-              <span class="badge" style="background:rgba(76,201,240,0.2); color:#4cc9f0; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(76,201,240,0.3);">AI SYSTEM</span>
+              <span class="badge"
+                style="background:rgba(76,201,240,0.2); color:#4cc9f0; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(76,201,240,0.3);">AI
+                SYSTEM</span>
             </div>
             <div class="proj-thumb-inner">
-              <img src="preview_shikshaguard.jpg" alt="Shiksha Guard AI Assessment Platform" class="proj-preview-img" loading="lazy" />
+              <img src="preview_shikshaguard.jpg" alt="Shiksha Guard AI Assessment Platform" class="proj-preview-img"
+                loading="lazy" />
               <div class="proj-overlay-glow"></div>
             </div>
             <div class="proj-chip">
@@ -450,7 +537,9 @@
               <span class="proj-tag">India AI 2026</span>
             </div>
             <div class="proj-title">Shiksha Guard — AI Infrastructure Validator (Team Project)</div>
-            <p class="proj-desc">Engineered frontend architecture and integrated REST APIs for a government-facing AI validation system under Samagra Shiksha, resulting in a live pitch to AiKosh officials. Recognized as a featured submission in the national India AI Innovation Challenge 2026.</p>
+            <p class="proj-desc">Engineered frontend architecture and integrated REST APIs for a government-facing AI
+              validation system under Samagra Shiksha, resulting in a live pitch to AiKosh officials. Recognized as a
+              featured submission in the national India AI Innovation Challenge 2026.</p>
             <div class="proj-footer">
               <a href="https://shikshaguard-frontend.onrender.com/" target="_blank" class="proj-link">View Live <i
                   class="bi bi-arrow-right"></i></a>
@@ -463,16 +552,20 @@
         </div>
 
         <!-- Project 3: meeCrebit -->
-        <div class="project-card half sr sr-delay-1 spotlight-card" data-tech="ai frontend" data-project-id="meecrebit" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
+        <div class="project-card half sr sr-delay-1 spotlight-card" data-tech="ai frontend" data-project-id="meecrebit"
+          data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
           <div class="proj-thumb" style="height:190px;">
             <div class="proj-browser-bar">
               <div class="proj-browser-dots">
                 <span class="proj-browser-dot" style="background:#ff5f57;"></span>
                 <span class="proj-browser-dot" style="background:#febc2e;"></span>
                 <span class="proj-browser-dot" style="background:#28c840;"></span>
-                <span class="proj-browser-url"><i class="bi bi-lock-fill" style="font-size:0.55rem; margin-right:4px;"></i>meecrebit.app</span>
+                <span class="proj-browser-url"><i class="bi bi-lock-fill"
+                    style="font-size:0.55rem; margin-right:4px;"></i>meecrebit.app</span>
               </div>
-              <span class="badge" style="background:rgba(152,224,110,0.2); color:#98e06e; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(152,224,110,0.3);">ON-DEVICE AI</span>
+              <span class="badge"
+                style="background:rgba(152,224,110,0.2); color:#98e06e; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(152,224,110,0.3);">ON-DEVICE
+                AI</span>
             </div>
             <div class="proj-thumb-inner">
               <img src="preview_meecrebit.jpg" alt="meeCrebit Finance App" class="proj-preview-img" loading="lazy" />
@@ -491,7 +584,8 @@
               <span class="proj-tag">JavaScript</span>
             </div>
             <div class="proj-title">meeCrebit — Privacy-First Finance App</div>
-            <p class="proj-desc">Programmed a privacy-first cross-platform mobile web app with a custom on-device AI inference engine for confidential financial analytics and intelligent budgeting.</p>
+            <p class="proj-desc">Programmed a privacy-first cross-platform mobile web app with a custom on-device AI
+              inference engine for confidential financial analytics and intelligent budgeting.</p>
             <div class="proj-footer">
               <a href="https://github.com/Uttham68/meeCrebit" target="_blank" class="proj-link">View Repository <i
                   class="bi bi-arrow-right"></i></a>
@@ -504,19 +598,23 @@
         </div>
 
         <!-- Project 4: Kinnera Images -->
-        <div class="project-card half sr sr-delay-2 spotlight-card" data-tech="frontend" data-project-id="ecommerce" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
+        <div class="project-card half sr sr-delay-2 spotlight-card" data-tech="frontend" data-project-id="ecommerce"
+          data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
           <div class="proj-thumb" style="height:190px;">
             <div class="proj-browser-bar">
               <div class="proj-browser-dots">
                 <span class="proj-browser-dot" style="background:#ff5f57;"></span>
                 <span class="proj-browser-dot" style="background:#febc2e;"></span>
                 <span class="proj-browser-dot" style="background:#28c840;"></span>
-                <span class="proj-browser-url"><i class="bi bi-lock-fill" style="font-size:0.55rem; margin-right:4px;"></i>kinneraimages.netlify.app</span>
+                <span class="proj-browser-url"><i class="bi bi-lock-fill"
+                    style="font-size:0.55rem; margin-right:4px;"></i>kinneraimages.netlify.app</span>
               </div>
-              <span class="badge" style="background:rgba(124,58,237,0.2); color:#a37fe0; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(124,58,237,0.3);">STUDIO</span>
+              <span class="badge"
+                style="background:rgba(124,58,237,0.2); color:#a37fe0; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(124,58,237,0.3);">STUDIO</span>
             </div>
             <div class="proj-thumb-inner">
-              <img src="preview_kinneraimages.jpg" alt="Kinnera Images Studio Website" class="proj-preview-img" loading="lazy" />
+              <img src="preview_kinneraimages.jpg" alt="Kinnera Images Studio Website" class="proj-preview-img"
+                loading="lazy" />
               <div class="proj-overlay-glow"></div>
             </div>
             <div class="proj-chip">
@@ -531,32 +629,38 @@
               <span class="proj-tag">Production</span>
             </div>
             <div class="proj-title">Kinnera Images | AI & Photography Studio</div>
-            <p class="proj-desc">Digital presence for Warangal's premier photography & AI studio featuring dynamic portfolio showcases, mobile-first design, and optimized Core Web Vitals.</p>
+            <p class="proj-desc">Digital presence for Warangal's premier photography & AI studio featuring dynamic
+              portfolio showcases, mobile-first design, and optimized Core Web Vitals.</p>
             <div class="proj-footer">
               <a href="https://kinneraimages.netlify.app/" target="_blank" class="proj-link">Live Site <i
                   class="bi bi-arrow-right"></i></a>
               <div class="proj-links-right">
-                <a href="https://kinneraimages.netlify.app/" target="_blank" class="proj-icon-btn magnetic-btn" title="Live Site"><i
-                    class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://kinneraimages.netlify.app/" target="_blank" class="proj-icon-btn magnetic-btn"
+                  title="Live Site"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Project 5: BingeHub -->
-        <div class="project-card full sr sr-delay-3 spotlight-card" data-tech="frontend" data-project-id="analytics" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
+        <div class="project-card full sr sr-delay-3 spotlight-card" data-tech="frontend" data-project-id="analytics"
+          data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.12" data-tilt-speed="400">
           <div class="proj-thumb" style="height:210px;">
             <div class="proj-browser-bar">
               <div class="proj-browser-dots">
                 <span class="proj-browser-dot" style="background:#ff5f57;"></span>
                 <span class="proj-browser-dot" style="background:#febc2e;"></span>
                 <span class="proj-browser-dot" style="background:#28c840;"></span>
-                <span class="proj-browser-url"><i class="bi bi-lock-fill" style="font-size:0.55rem; margin-right:4px;"></i>bingehubz.netlify.app</span>
+                <span class="proj-browser-url"><i class="bi bi-lock-fill"
+                    style="font-size:0.55rem; margin-right:4px;"></i>bingehubz.netlify.app</span>
               </div>
-              <span class="badge" style="background:rgba(255,209,102,0.2); color:#ffd166; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(255,209,102,0.3);">WEB APP</span>
+              <span class="badge"
+                style="background:rgba(255,209,102,0.2); color:#ffd166; font-family:var(--font-mono); font-size:0.6rem; border:1px solid rgba(255,209,102,0.3);">WEB
+                APP</span>
             </div>
             <div class="proj-thumb-inner">
-              <img src="preview_bingehub.jpg" alt="BingeHub Anime & TV Tracker" class="proj-preview-img" loading="lazy" />
+              <img src="preview_bingehub.jpg" alt="BingeHub Anime & TV Tracker" class="proj-preview-img"
+                loading="lazy" />
               <div class="proj-overlay-glow"></div>
             </div>
             <div class="proj-chip">
@@ -568,13 +672,14 @@
             <div class="proj-tags"><span class="proj-tag">HTML5</span><span class="proj-tag">CSS3</span><span
                 class="proj-tag">JavaScript</span><span class="proj-tag">REST APIs</span></div>
             <div class="proj-title">BingeHub | Anime & TV Tracking Web Application</div>
-            <p class="proj-desc">Interactive tracker for television shows and anime with dynamic search, status filtering, responsive visual cards, and state persistence.</p>
+            <p class="proj-desc">Interactive tracker for television shows and anime with dynamic search, status
+              filtering, responsive visual cards, and state persistence.</p>
             <div class="proj-footer">
               <a href="https://bingehubz.netlify.app/" target="_blank" class="proj-link">Live Application <i
                   class="bi bi-arrow-right"></i></a>
               <div class="proj-links-right">
-                <a href="https://bingehubz.netlify.app/" target="_blank" class="proj-icon-btn magnetic-btn" title="Live Site"><i
-                    class="bi bi-box-arrow-up-right"></i></a>
+                <a href="https://bingehubz.netlify.app/" target="_blank" class="proj-icon-btn magnetic-btn"
+                  title="Live Site"><i class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
           </div>
@@ -587,7 +692,8 @@
   <!-- Morph Wave Transition: Projects to Experience -->
   <div class="morph-divider-wrap">
     <svg viewBox="0 0 1440 50" preserveAspectRatio="none">
-      <path class="morph-wave-path" d="M0,20 C360,50 720,0 1080,45 C1260,60 1380,10 1440,20 L1440,50 L0,50 Z" fill="var(--surface)"></path>
+      <path class="morph-wave-path" d="M0,20 C360,50 720,0 1080,45 C1260,60 1380,10 1440,20 L1440,50 L0,50 Z"
+        fill="var(--surface)"></path>
     </svg>
   </div>
 
@@ -713,7 +819,8 @@
               <ul class="tl-points">
                 <li>Specialized in Artificial Intelligence, Deep Learning, Statistical Modeling, and Scalable Backend
                   Engineering.</li>
-                <li>Relevant Coursework: Data Structures & Algorithms, Design and Analysis of Algorithms, DBMS, Operating
+                <li>Relevant Coursework: Data Structures & Algorithms, Design and Analysis of Algorithms, DBMS,
+                  Operating
                   Systems, Computer Networks, Machine Learning, Statistical Methods in AI.</li>
               </ul>
             </div>
@@ -723,7 +830,8 @@
               <div class="tl-dot dim"></div>
               <div class="tl-period" style="color:var(--muted);">2020 – 2022</div>
               <div class="tl-role">Class XII, TSBIE (MPC)</div>
-              <div class="tl-company"><i class="bi bi-building" style="font-size:0.8rem; margin-right:6px;"></i>Telangana
+              <div class="tl-company"><i class="bi bi-building"
+                  style="font-size:0.8rem; margin-right:6px;"></i>Telangana
                 State Board of Intermediate Education · <strong style="color:var(--text);">Score: 92.4%</strong></div>
             </div>
 
@@ -744,7 +852,8 @@
   <!-- Morph Wave Transition: Experience to Contact -->
   <div class="morph-divider-wrap">
     <svg viewBox="0 0 1440 50" preserveAspectRatio="none">
-      <path class="morph-wave-path" d="M0,35 C400,10 800,55 1200,20 C1320,8 1400,30 1440,35 L1440,50 L0,50 Z" fill="var(--bg2)"></path>
+      <path class="morph-wave-path" d="M0,35 C400,10 800,55 1200,20 C1320,8 1400,30 1440,35 L1440,50 L0,50 Z"
+        fill="var(--bg2)"></path>
     </svg>
   </div>
 

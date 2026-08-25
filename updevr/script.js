@@ -56,39 +56,58 @@ function initHeroAnimations() {
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  tl.fromTo('.hero-eyebrow', 
-    { y: -20, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.8, delay: 0.1 }
-  )
-  .fromTo('.hero-title .inner', 
-    { y: 60, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.85, stagger: 0.1 }, 
-    '-=0.5'
-  )
-  .fromTo('.hero-sub', 
-    { y: 15, opacity: 0 }, 
-    { y: 0, opacity: 1, duration: 0.65 }, 
-    '-=0.5'
-  )
-  .fromTo('.hero-actions .btn-fill, .hero-actions .btn-ghost', 
-    { y: 15, opacity: 0, scale: 0.96 }, 
-    { y: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.1 }, 
-    '-=0.4'
-  );
-
   if (window.innerWidth > 992) {
-    tl.fromTo('.hero-graphic', 
+    tl.fromTo('.hero-eyebrow', 
+      { y: -20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.8, delay: 0.1 }
+    )
+    .fromTo('.hero-title .inner', 
+      { y: 60, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.85, stagger: 0.1 }, 
+      '-=0.5'
+    )
+    .fromTo('.hero-sub', 
+      { y: 15, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.65 }, 
+      '-=0.5'
+    )
+    .fromTo('.hero-actions .btn-fill, .hero-actions .btn-ghost', 
+      { y: 15, opacity: 0, scale: 0.96 }, 
+      { y: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.1 }, 
+      '-=0.4'
+    )
+    .fromTo('.hero-graphic', 
       { scale: 0.88, opacity: 0, y: 30, rotationX: 10 }, 
       { scale: 1, opacity: 1, y: 0, rotationX: 0, duration: 1, ease: 'back.out(1.4)' }, 
       '-=0.6'
+    )
+    .fromTo('.scroll-cue', 
+      { opacity: 0, y: -10 }, 
+      { opacity: 1, y: 0, duration: 0.5 }, 
+      '-=0.3'
+    );
+  } else {
+    // Mobile Hero Entrance
+    tl.fromTo('.mobile-hero-profile', 
+      { y: 15, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5, delay: 0.05 }
+    )
+    .fromTo('.mobile-title-wrap', 
+      { y: 20, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.6 }, 
+      '-=0.3'
+    )
+    .fromTo('.mobile-bento-card', 
+      { y: 15, opacity: 0, scale: 0.95 }, 
+      { y: 0, opacity: 1, scale: 1, stagger: 0.06, duration: 0.5 }, 
+      '-=0.4'
+    )
+    .fromTo('.mobile-hero-actions', 
+      { y: 15, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.5 }, 
+      '-=0.3'
     );
   }
-
-  tl.fromTo('.scroll-cue', 
-    { opacity: 0, y: -10 }, 
-    { opacity: 1, y: 0, duration: 0.5 }, 
-    '-=0.3'
-  );
 }
 
 // ===== SECTION-WISE SCROLL-TRIGGERED GSAP ANIMATIONS =====
