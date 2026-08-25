@@ -9,7 +9,12 @@ window.addEventListener('load', () => {
 });
 
 // ===== TYPEWRITER EFFECT =====
-const words = ["Frontend Developer", "UI/UX Enthusiast", "Web Craftsman"];
+const words = [
+  "Software Engineer",
+  "Full-Stack Developer",
+  "AI & Data Science Engineer",
+  "Serverless Architect"
+];
 let wordIdx = 0, charIdx = 0, isDeleting = false;
 const typeTarget = document.getElementById('typewriter');
 
@@ -131,30 +136,36 @@ filterBtns.forEach(btn => {
 
 // ===== PROJECT MODAL LOGIC =====
 const projectData = {
+  'shiksha': {
+    title: 'Shiksha Guard — AI School Infrastructure Validator',
+    desc: 'Engineered frontend architecture and integrated REST APIs for a government-facing AI validation system under Samagra Shiksha, resulting in a live pitch to AiKosh officials. Recognized as a featured submission in the national India AI Innovation Challenge 2026.',
+    tags: ['React.js', 'FastAPI Integration', 'REST APIs', 'India AI Challenge 2026'],
+    live: 'https://shikshaguard-frontend.onrender.com/',
+    repo: 'https://github.com/Uttham68/ShikshaGuard'
+  },
   'saas': {
-    title: 'January Delight | FoodTruck Website',
-    desc: 'January Delight is a gourmet food truck serving delicious comfort food and fusion cuisine in Beavercreek, Ohio. Order online or visit us for lunch, dinner, and snacks.',
-    tags: ['HTML5', 'CSS3', 'Bootstrap 5', 'JavaScript'],
-    live: 'https://www.januarydelight.com',
+    title: 'January Delight Food Truck | Live Ordering Platform',
+    desc: 'Architected a serverless ordering platform using Node.js on Cloudflare Workers and RESTful APIs maintaining 99.9% uptime. Features a real-time order pipeline with live admin panel synchronization (<500ms latency) and engineered security layers (XSS, CSRF prevention) safeguarding 100% of user sessions.',
+    tags: ['Node.js', 'Cloudflare Workers', 'Python', 'Flask', 'REST APIs', 'Vanilla JS'],
+    live: 'https://www.januarydelight.com/'
+  },
+  'meecrebit': {
+    title: 'meeCrebit — Privacy-First Personal Finance App',
+    desc: 'Programmed a privacy-first mobile web application featuring a custom on-device AI inference engine for automated financial insights, budgeting, and privacy-preserving analytics.',
+    tags: ['React.js', 'Capacitor', 'Custom AI Engine', 'JavaScript'],
+    repo: 'https://github.com/Uttham68/meeCrebit'
   },
   'ecommerce': {
-    title: 'Kinnera Images | Business Website',
-    desc: "Kinnera Images is Warangal's premier digital AI studio specializing in wedding photography, cinematic videography, and corporate portraits since 1991.",
-    tags: ['Tailwind CSS', 'JavaScript', 'Mobile-First'],
-    live: 'https://kinneraimages.netlify.app',
+    title: 'Kinnera Images | AI & Photography Studio Website',
+    desc: "Digital platform for Warangal's premier digital AI studio specializing in wedding photography, cinematic videography, and corporate portraits. Optimized for mobile-first performance and responsive design.",
+    tags: ['Tailwind CSS', 'JavaScript', 'Mobile-First', 'Performance'],
+    live: 'https://kinneraimages.netlify.app/'
   },
   'analytics': {
-    title: 'BingeHub | Your Ultimate Anime & TV Tracker',
-    desc: 'Your Ultimate Anime & TV Tracker',
-    tags: ['JavaScript', 'Data Viz', 'CSS Grid'],
-    live: 'https://atvtracker.netlify.app/',
-  },
-  'portfolio': {
-    title: 'Portfolio Template',
-    desc: 'A clean, minimal template designed for high readability and professional impact. Built with a modular approach, allowing for easy customization of sections and color schemes.',
-    tags: ['Bootstrap', 'Minimalism', 'Responsive'],
-    live: '#',
-    repo: '#'
+    title: 'BingeHub | Anime & TV Tracker Web Application',
+    desc: 'Feature-rich media and anime tracking web application with interactive search, status categorization, responsive CSS grid layouts, and client-side state storage.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'REST APIs'],
+    live: 'https://bingehubz.netlify.app/'
   }
 };
 
@@ -171,12 +182,32 @@ document.querySelectorAll('.project-card').forEach(card => {
 
     document.getElementById('modalTitle').textContent = data.title;
     document.getElementById('modalDesc').textContent = data.desc;
-    document.getElementById('modalLiveLink').href = data.live;
-    document.getElementById('modalRepoLink').href = data.repo;
     
-    // Clone the thumbnail SVG for the modal
-    const thumb = card.querySelector('.proj-thumb-inner').innerHTML;
-    document.getElementById('modalImage').innerHTML = thumb;
+    const liveLink = document.getElementById('modalLiveLink');
+    const repoLink = document.getElementById('modalRepoLink');
+
+    if (data.live) {
+      liveLink.href = data.live;
+      liveLink.style.display = 'inline-flex';
+    } else {
+      liveLink.style.display = 'none';
+    }
+
+    if (data.repo) {
+      repoLink.href = data.repo;
+      repoLink.style.display = 'inline-flex';
+    } else {
+      repoLink.style.display = 'none';
+    }
+    
+    // Set image for the modal
+    const img = card.querySelector('.proj-preview-img');
+    if (img) {
+      document.getElementById('modalImage').innerHTML = `<img src="${img.src}" alt="${data.title}" />`;
+    } else {
+      const thumb = card.querySelector('.proj-thumb-inner');
+      document.getElementById('modalImage').innerHTML = thumb ? thumb.innerHTML : '';
+    }
 
     // Populate tags
     const tagsContainer = document.getElementById('modalTags');
