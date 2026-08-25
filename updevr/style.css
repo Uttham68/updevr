@@ -182,6 +182,10 @@ body::after {
   padding: 120px 0 80px;
   position: relative; overflow: hidden;
 }
+.hero-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 1; opacity: 0.75;
+}
 .hero-bg-grid {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
@@ -347,8 +351,6 @@ section {
   padding: clamp(4rem, 10vw, 7rem) 0; 
   position: relative; 
   scroll-margin-top: 80px;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 500px;
 }
 .eyebrow {
   font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.25em;
@@ -485,12 +487,30 @@ section {
 .skill-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
 .skill-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
 .skill-level {
-  margin-top: 1.2rem; height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden;
+  margin-top: 1.2rem; height: 4px; background: var(--surface2); border-radius: 4px; overflow: visible; position: relative;
 }
 .skill-level-bar {
-  height: 100%; border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), #4cc9f0);
+  background-size: 200% auto;
+  animation: barGradientShift 4s linear infinite;
+  width: 0; transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.skill-level-bar::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px var(--accent), 0 0 16px var(--accent2);
+}
+@keyframes barGradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 /* ===================== MODAL CUSTOMIZATION ===================== */
@@ -640,12 +660,54 @@ section {
   line-height: 1;
   display: block;
 }
+/* Project Card Multi-Layer 3D Depth */
+.project-card {
+  transform-style: preserve-3d;
+}
+.project-card .proj-body {
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+.project-card .proj-title {
+  transform: translateZ(30px);
+}
+.project-card .proj-tags {
+  transform: translateZ(24px);
+}
+.project-card .proj-desc {
+  transform: translateZ(15px);
+}
+.project-card .proj-footer {
+  transform: translateZ(28px);
+}
+.project-card .proj-chip {
+  transform: translateZ(40px);
+}
+.project-card .proj-browser-bar {
+  transform: translateZ(25px);
+}
+.skill-card .skill-icon-wrap {
+  transform: translateZ(35px);
+}
+.skill-card .skill-title {
+  transform: translateZ(25px);
+}
+.about-avatar .avatar-chip {
+  transform: translateZ(45px);
+}
+
 .proj-body { padding: 1.6rem; }
 .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
 .proj-tag {
   font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em;
   padding: 3px 10px; border-radius: 100px;
   border: 1px solid var(--border); color: var(--muted);
+  transition: all 0.25s ease;
+}
+.project-card:hover .proj-tag {
+  border-color: rgba(255, 107, 53, 0.4);
+  color: var(--text);
+  transform: translateY(-2px);
 }
 .proj-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
 .featured .proj-title { font-size: 1.4rem; }
@@ -686,9 +748,20 @@ section {
   width: 14px; height: 14px; border-radius: 50%;
   background: var(--accent); border: 3px solid var(--bg);
   box-shadow: 0 0 0 2px var(--accent), 0 0 20px rgba(255,107,53,0.4);
+  transition: all 0.4s ease;
 }
 .tl-dot.alt { background: var(--blue); box-shadow: 0 0 0 2px var(--blue), 0 0 20px rgba(76,201,240,0.3); }
 .tl-dot.dim { background: var(--muted); box-shadow: none; }
+
+.tl-item.active-step .tl-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 4px var(--accent), 0 0 30px var(--accent);
+  background: #fff;
+}
+.tl-item.active-step .tl-role {
+  color: var(--text);
+  text-shadow: 0 0 15px rgba(255,107,53,0.3);
+}
 .tl-period {
   font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em;
   color: var(--accent2); margin-bottom: 0.4rem;
@@ -842,19 +915,26 @@ footer {
 
 /* Scroll reveal */
 .sr {
-  opacity: 0; transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .sr.visible { opacity: 1; transform: translateY(0); }
-.sr-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.sr-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .sr-left.visible { opacity: 1; transform: translateX(0); }
-.sr-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.sr-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .sr-right.visible { opacity: 1; transform: translateX(0); }
 .sr-delay-1 { transition-delay: 0.1s; }
 .sr-delay-2 { transition-delay: 0.2s; }
 .sr-delay-3 { transition-delay: 0.3s; }
 .sr-delay-4 { transition-delay: 0.4s; }
 .sr-delay-5 { transition-delay: 0.5s; }
+
+/* 3D Hardware Acceleration for Scroll Transforms */
+.project-card, .skill-card, .about-avatar, .contact-form, .stat-item, .tl-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
 
 /* ===================== RESPONSIVE ===================== */
 
@@ -912,4 +992,225 @@ footer {
 @media (min-width: 1400px) {
   .project-card.featured { grid-column: span 8; }
   .project-card.side     { grid-column: span 4; }
+}
+
+/* ===================== ADVANCED ANIMATION SUITE ===================== */
+
+/* Spotlight Glow Effect on Cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y, -300px);
+  left: var(--mouse-x, -300px);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle closest-side, rgba(255, 107, 53, 0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Border Beam Effect (Rotating Neon Halo) */
+@keyframes borderBeamSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.border-beam-card {
+  position: relative;
+}
+.border-beam-card::after {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(60deg, var(--accent), #4cc9f0, #ffd166, #ff6b35);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGradientShift 6s ease infinite;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.75;
+}
+
+@keyframes borderGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Text Shimmer Effect on Headings */
+.text-shimmer {
+  background: linear-gradient(90deg, #eef0f8 0%, #ff6b35 35%, #4cc9f0 70%, #eef0f8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 6s linear infinite;
+}
+
+@keyframes textShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Vanilla Tilt Card Glare Enhancements */
+.js-tilt-glare {
+  border-radius: inherit;
+}
+.js-tilt-glare-inner {
+  border-radius: inherit;
+}
+
+/* Magnetic Button Physics */
+.magnetic-btn {
+  display: inline-flex;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* Ambient Floating Micro-Animations */
+@keyframes floatSmooth {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.4deg); }
+}
+
+@keyframes floatSmoothReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(6px) rotate(-0.4deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.avatar-box {
+  animation: floatSmooth 7s ease-in-out infinite;
+}
+.chip-tl {
+  animation: floatSmoothReverse 5s ease-in-out infinite;
+}
+.chip-br {
+  animation: floatSmooth 6s ease-in-out infinite;
+}
+.hc-main {
+  animation: floatSmooth 8s ease-in-out infinite;
+}
+.tech-dot {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Timeline Vertical Glowing Line Progression */
+.timeline-progress-line {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--blue) 50%, var(--accent2) 100%);
+  box-shadow: 0 0 12px var(--accent);
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.1s linear;
+  z-index: 1;
+}
+
+/* ===================== SCROLL MORPH TRANSITIONS ===================== */
+
+/* Ambient Fixed Morph Mesh Backdrop */
+.morph-mesh-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.65;
+}
+.morph-blob {
+  position: absolute;
+  filter: blur(80px);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphBlobAnim 14s ease-in-out infinite alternate;
+  will-change: transform, border-radius;
+  opacity: 0.28;
+}
+.morph-blob-1 {
+  width: 550px; height: 550px;
+  background: radial-gradient(circle, #ff6b35 0%, rgba(255,107,53,0) 70%);
+  top: 15%; left: -10%;
+  animation-duration: 16s;
+}
+.morph-blob-2 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #4cc9f0 0%, rgba(76,201,240,0) 70%);
+  bottom: 10%; right: -12%;
+  animation-duration: 20s;
+  animation-delay: -5s;
+}
+.morph-blob-3 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #7c3aed 0%, rgba(124,58,237,0) 70%);
+  top: 50%; left: 40%;
+  animation-duration: 18s;
+  animation-delay: -10s;
+}
+
+@keyframes morphBlobAnim {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1) translate(0px, 0px);
+  }
+  33% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(120deg) scale(1.12) translate(30px, -20px);
+  }
+  66% {
+    border-radius: 70% 30% 50% 50% / 30% 40% 60% 70%;
+    transform: rotate(240deg) scale(0.92) translate(-25px, 25px);
+  }
+  100% {
+    border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+    transform: rotate(360deg) scale(1) translate(0px, 0px);
+  }
+}
+
+/* Morphing Fluid Section Dividers */
+.morph-divider-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.morph-divider-wrap svg {
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+.morph-divider-wrap.flip {
+  transform: rotate(180deg);
+}
+
+/* Organic Morphing Card Accents */
+.morph-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphBlobAnim 8s ease-in-out infinite alternate;
 }
