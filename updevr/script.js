@@ -91,43 +91,78 @@ function initHeroAnimations() {
   );
 }
 
-// ===== SECTION-WISE SCROLL-TRIGGERED GSAP ANIMATIONS (RESPONSIVE & BIDIRECTIONAL) =====
+// ===== SECTION-WISE SCROLL-TRIGGERED GSAP ANIMATIONS =====
 function initSectionScrollAnimations() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    const srObserver = new IntersectionObserver((entries) => {
+  const isMobile = window.innerWidth <= 768 || isTouchDevice;
+
+  // On Mobile: Ensure everything is immediately visible and lightweight
+  if (isMobile) {
+    document.querySelectorAll('.sr, .sr-left, .sr-right, .project-card, .skill-card, .tl-item, .contact-info-item, .contact-form').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      el.classList.add('visible');
+    });
+
+    // Expand skill bars on mobile via IntersectionObserver
+    const skillObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
+        if (e.isIntersecting) {
+          const bar = e.target.querySelector('.skill-level-bar');
+          if (bar && bar.dataset.width) {
+            bar.style.width = bar.dataset.width + '%';
+          }
+        }
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => srObserver.observe(el));
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.skill-card').forEach(card => skillObs.observe(card));
+
+    // Stats counter on mobile
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const target = parseFloat(el.dataset.target);
+          const prefix = el.dataset.prefix || '';
+          const suffix = el.dataset.suffix || '';
+          const decimals = parseInt(el.dataset.decimals) || 0;
+          let count = 0;
+          const step = () => {
+            count += (target - count) * 0.15;
+            if (Math.abs(target - count) < 0.05) {
+              el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+            } else {
+              el.textContent = `${prefix}${count.toFixed(decimals)}${suffix}`;
+              requestAnimationFrame(step);
+            }
+          };
+          step();
+          statObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => statObs.observe(el));
+
     return;
   }
 
-  const isMobile = window.innerWidth <= 768;
-  const xOffset = isMobile ? 0 : 80;
-  const yOffset = isMobile ? 35 : 0;
-  const rotVal = isMobile ? 0 : 10;
+  // On Desktop: Run Full High-Fidelity GSAP & ScrollTrigger Animations
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  // Clear default static CSS hides so GSAP has full bidirectional control
-  document.querySelectorAll('.sr, .sr-left, .sr-right').forEach(el => {
-    el.classList.add('visible');
-  });
-
-  // 1. STATS STRIP (Bidirectional Staggered Pop-In)
+  // 1. STATS STRIP
   gsap.from('.stat-item', {
     scrollTrigger: {
       trigger: '.stats-strip',
       start: 'top 85%',
       toggleActions: 'play reverse play reverse'
     },
-    y: 30,
+    y: 35,
     opacity: 0,
     stagger: 0.1,
     duration: 0.7,
     ease: 'power3.out'
   });
 
-  // Numeric stats countup with bidirectional re-trigger
+  // Numeric stats countup (Desktop)
   document.querySelectorAll('.stat-num[data-target]').forEach(el => {
     const target = parseFloat(el.dataset.target);
     const prefix = el.dataset.prefix || '';
@@ -153,23 +188,22 @@ function initSectionScrollAnimations() {
     );
   });
 
-  // 2. ABOUT SECTION (Avatar & Bio)
+  // 2. ABOUT SECTION
   const aboutTl = gsap.timeline({
     scrollTrigger: {
       trigger: '#about',
-      start: 'top 78%',
+      start: 'top 75%',
       toggleActions: 'play reverse play reverse'
     }
   });
 
   aboutTl
     .from('#about .about-avatar', {
-      x: isMobile ? 0 : -80,
-      y: isMobile ? 35 : 0,
+      x: -80,
       opacity: 0,
-      scale: 0.94,
-      rotationY: isMobile ? 0 : -12,
-      duration: 0.9,
+      scale: 0.92,
+      rotationY: -12,
+      duration: 0.95,
       ease: 'power3.out'
     })
     .from('#about .avatar-chip', {
@@ -180,8 +214,7 @@ function initSectionScrollAnimations() {
       ease: 'back.out(1.8)'
     }, '-=0.4')
     .from('#about .col-lg-6 > *', {
-      x: isMobile ? 0 : 60,
-      y: isMobile ? 25 : 0,
+      x: 60,
       opacity: 0,
       stagger: 0.1,
       duration: 0.7,
@@ -196,7 +229,7 @@ function initSectionScrollAnimations() {
       ease: 'back.out(1.5)'
     }, '-=0.3');
 
-  // 3. SKILLS SECTION (Alternating Cards)
+  // 3. SKILLS SECTION
   gsap.from('#skills .text-center > *', {
     scrollTrigger: {
       trigger: '#skills',
@@ -219,12 +252,11 @@ function initSectionScrollAnimations() {
         start: 'top 85%',
         toggleActions: 'play reverse play reverse'
       },
-      x: isMobile ? 0 : (fromLeft ? -xOffset : xOffset),
-      y: isMobile ? 30 : 0,
-      rotationY: fromLeft ? -rotVal : rotVal,
+      x: fromLeft ? -80 : 80,
+      rotationY: fromLeft ? -10 : 10,
       opacity: 0,
       scale: 0.94,
-      duration: 0.8,
+      duration: 0.85,
       ease: 'power3.out'
     });
 
@@ -280,9 +312,8 @@ function initSectionScrollAnimations() {
       start: 'top 80%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : -80,
-    y: isMobile ? 35 : 0,
-    rotationY: isMobile ? 0 : -8,
+    x: -80,
+    rotationY: -8,
     opacity: 0,
     duration: 0.95,
     ease: 'power3.out'
@@ -295,9 +326,8 @@ function initSectionScrollAnimations() {
       start: 'top 80%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : 80,
-    y: isMobile ? 35 : 0,
-    rotationY: isMobile ? 0 : 8,
+    x: 80,
+    rotationY: 8,
     opacity: 0,
     duration: 0.95,
     ease: 'power3.out'
@@ -312,8 +342,7 @@ function initSectionScrollAnimations() {
         start: 'top 85%',
         toggleActions: 'play reverse play reverse'
       },
-      x: isMobile ? 0 : -60,
-      y: isMobile ? 30 : 0,
+      x: -60,
       opacity: 0,
       duration: 0.8,
       ease: 'power3.out'
@@ -326,8 +355,7 @@ function initSectionScrollAnimations() {
         start: 'top 85%',
         toggleActions: 'play reverse play reverse'
       },
-      x: isMobile ? 0 : 60,
-      y: isMobile ? 30 : 0,
+      x: 60,
       opacity: 0,
       duration: 0.8,
       ease: 'power3.out'
@@ -355,8 +383,7 @@ function initSectionScrollAnimations() {
       start: 'top 75%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : -70,
-    y: isMobile ? 30 : 0,
+    x: -70,
     opacity: 0,
     stagger: 0.12,
     duration: 0.8,
@@ -369,8 +396,7 @@ function initSectionScrollAnimations() {
       start: 'top 75%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : 70,
-    y: isMobile ? 25 : 0,
+    x: 70,
     opacity: 0,
     stagger: 0.15,
     duration: 0.8,
@@ -397,8 +423,7 @@ function initSectionScrollAnimations() {
       start: 'top 85%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : -50,
-    y: isMobile ? 20 : 0,
+    x: -50,
     opacity: 0,
     stagger: 0.1,
     duration: 0.7,
@@ -411,9 +436,8 @@ function initSectionScrollAnimations() {
       start: 'top 85%',
       toggleActions: 'play reverse play reverse'
     },
-    x: isMobile ? 0 : 60,
-    y: isMobile ? 30 : 0,
-    rotationY: isMobile ? 0 : 6,
+    x: 60,
+    rotationY: 6,
     opacity: 0,
     scale: 0.97,
     duration: 0.9,
@@ -706,41 +730,43 @@ function closeMobileNav() {
   document.body.style.overflow = '';
 }
 
-// ===== SPOTLIGHT MOUSE TRACKER ON GLASS CARDS =====
-document.querySelectorAll('.spotlight-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
+// ===== SPOTLIGHT MOUSE TRACKER ON GLASS CARDS (DESKTOP ONLY) =====
+if (!isTouchDevice && window.innerWidth > 768) {
+  document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
   });
-});
 
-// ===== MAGNETIC BUTTON EFFECT =====
-document.querySelectorAll('.magnetic-btn, .nav-cta, .social-btn').forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+  // ===== MAGNETIC BUTTON EFFECT =====
+  document.querySelectorAll('.magnetic-btn, .nav-cta, .social-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0px, 0px) scale(1)';
+    });
   });
-  btn.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0px, 0px) scale(1)';
-  });
-});
 
-// ===== INITIALIZE VANILLA-TILT 3D PHYSICS WITH MULTI-LAYER DEPTH =====
-if (typeof VanillaTilt !== 'undefined') {
-  VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-    max: 9,
-    speed: 500,
-    perspective: 1000,
-    glare: true,
-    'max-glare': 0.18,
-    scale: 1.025,
-    easing: 'cubic-bezier(.03,.98,.52,.99)'
-  });
+  // ===== INITIALIZE VANILLA-TILT 3D PHYSICS WITH MULTI-LAYER DEPTH =====
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+      max: 9,
+      speed: 500,
+      perspective: 1000,
+      glare: true,
+      'max-glare': 0.18,
+      scale: 1.025,
+      easing: 'cubic-bezier(.03,.98,.52,.99)'
+    });
+  }
 }
 
 // ===== PROJECT FILTERING =====
