@@ -1,0 +1,3 @@
+# Netlify Clean URL Routing
+/admin    /admin.html    200
+/admin/*  /admin.html    200
